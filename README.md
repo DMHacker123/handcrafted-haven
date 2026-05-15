@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Handcrafted Haven
 
-## Getting Started
+## Overview
 
-First, run the development server:
+Handcrafted Haven is a web application designed to give artisans and crafters a platform to showcase and sell unique handcrafted items. It serves as a virtual marketplace that connects creators with customers who value the beauty, quality, and character of handmade products.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+The project focuses on building community, supporting local artisans, and encouraging sustainable consumption. By creating a digital space where makers can present their work and reach a broader audience, Handcrafted Haven aims to become a trusted destination for discovering and purchasing handcrafted treasures.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Project Purpose
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+This group project supports three main course outcomes:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. **Develop Software Development Skills**  
+   Build a full-stack web application in a collaborative environment and deploy it to the cloud.
+2. **Develop as an Effective Group Member**  
+   Strengthen professionalism, teamwork, and communication through real group software development work.
+3. **Teach One Another**  
+   Learn by collaborating, sharing understanding, and helping teammates grow together.
 
-## Learn More
+## Core Functionality
 
-To learn more about Next.js, take a look at the following resources:
+The application is expected to include the following features:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Seller Profiles**  
+  Authenticated sellers have dedicated profiles where they can showcase their craftsmanship, share their stories, and display a curated collection of handcrafted items.
+- **Product Listings**  
+  Artisans can list products for sale with descriptions, pricing, and images.
+- **Product Browsing and Filtering**  
+  Users can browse the catalog and filter products by category, price range, or other relevant criteria.
+- **Reviews and Ratings**  
+  Users can leave product ratings and written reviews.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Design Expectations
 
-## Deploy on Vercel
+Handcrafted Haven should follow strong web development and user experience standards:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Performance**
+- **Validation**
+- **Accessibility**  
+  The application should comply with WCAG 2.1 Level AA to support users with disabilities.
+- **SEO**
+- **Usability**
+- **Responsive Design**  
+  The site should provide a seamless experience across desktop, tablet, and mobile devices.
+- **Branding**  
+  The application should maintain a consistent visual identity through color, typography, and layout.
+- **Navigation**  
+  The site should include clear, intuitive navigation with a logical structure.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Technology Stack
+
+- **Front-End:** HTML, CSS, JavaScript, Next.js
+- **Back-End:** Node.js, database integration
+- **Project Management:** GitHub Boards
+- **Code Management:** Git and GitHub
+- **Deployment / Cloud Platform:** Vercel
+
+## Team Members
+
+Add team member names here:
+
+- Efrain Ochoa 
+
+
+## Project Status
+
+This repository is currently in the early stages of development. The current codebase contains the initial Next.js project setup and will be expanded as features are implemented.
