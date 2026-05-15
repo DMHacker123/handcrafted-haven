@@ -75,7 +75,7 @@ Add team member names here:
 
 - Efrain Ochoa 
 - Alexandra Suárez
-
+- Cesar Barrera
 
 ## Project Status
 
