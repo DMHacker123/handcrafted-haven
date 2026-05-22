@@ -8,7 +8,7 @@ primary font: handlee static
 
 Color Shema
 
-Primary color: #b6a38d
+Primary color: #53483c
 Secondary Color: #c5b5a4
 Third color #d3c8bb
 
