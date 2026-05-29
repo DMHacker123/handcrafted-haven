@@ -9,7 +9,7 @@ export default function Home() {
           <nav className= "flex items-center space-x-6">
             <a href="#">Home</a>
             <a href="#">Products</a>
-            <a href="#">Favorites</a>
+            <a href="favorites">Favorites</a>
 
             {/* Tailwind button color to be resolved */}
             <button className="px-4 py-2 rounded-lg bg-[#53483c] text-white">
