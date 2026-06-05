@@ -35,7 +35,6 @@ export default async function FavoritesPage() {
         </p>
       </section>
 
-      {/* Empty State */}
       {(!favorites || favorites.length === 0) && (
         <div className="text-center pb-20">
           <p className="text-gray-500 text-lg">
