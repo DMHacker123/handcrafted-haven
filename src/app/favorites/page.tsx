@@ -10,7 +10,6 @@ export default async function FavoritesPage() {
   return (
     <main className="min-h-screen bg-[#f5f1eb]">
 
-      {/* Header */}
      {/* Header */}
       <header className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center py-10">
         <h1 className="text-2xl font-bold text-center md:text-left">Handcrafted Haven</h1>
@@ -19,7 +18,6 @@ export default async function FavoritesPage() {
             <a href="#">Products</a>
             <a href="favorites">Favorites</a>
 
-            {/* Tailwind button color to be resolved */}
             <button className="px-4 py-2 rounded-lg bg-[#53483c] text-white">
               Login
             </button>
@@ -37,7 +35,6 @@ export default async function FavoritesPage() {
         </p>
       </section>
 
-      {/* Empty State */}
       {(!favorites || favorites.length === 0) && (
         <div className="text-center pb-20">
           <p className="text-gray-500 text-lg">
