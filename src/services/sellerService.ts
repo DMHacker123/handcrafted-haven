@@ -1,5 +1,7 @@
 import { supabase } from "@/src/lib/supabase";
 
+export async function getAllSellers()
+
 export async function getSellerProfile(userId: string) {
   return await supabase
     .from("seller_profiles")
