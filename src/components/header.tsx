@@ -1,5 +1,5 @@
 import Link from "next/link";
-
+import AuthNav from "./AuthNav";
 export default function Header() {
   return (
     <header className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center py-10 px-6">
@@ -13,10 +13,8 @@ export default function Header() {
         <Link href="/">Home</Link>
         <Link href="/products">Products</Link>
         <Link href="/favorites">Favorites</Link>
+        <AuthNav />
 
-        <button className="px-4 py-2 rounded-lg bg-[#53483c] text-white">
-          Login
-        </button>
       </nav>
     </header>
   );
