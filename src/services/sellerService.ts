@@ -1,4 +1,4 @@
-import { supabase } from "@/src/lib/supabase";
+import { supabase } from "@/lib/supabase";
 
 export async function getSellerProfile(userId: string) {
   return await supabase
