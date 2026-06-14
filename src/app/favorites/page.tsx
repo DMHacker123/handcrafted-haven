@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { getFavorites } from "@/src/services/favoriteService";
-import { TEST_USER_ID } from "@/src/lib/devUser";
+import { getFavorites } from "@/services/favoriteService";
+import { TEST_USER_ID } from "@/lib/devUser";
 
 export default async function FavoritesPage() {
   const { data: favorites, error } =
