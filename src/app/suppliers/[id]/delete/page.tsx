@@ -1,6 +1,6 @@
-import Footer from "@/src/components/footer";
-import Header from "@/src/components/header";
-import { suppliers } from "@/src/lib/data";
+import Footer from "@/components/footer";
+import Header from "@/components/header";
+import { suppliers } from "@/lib/data";
 
 type Props = {
   params: Promise<{
