@@ -7,20 +7,20 @@ export const suppliers: Supplier[] = [
       name: 'Ceramic Arts',
       email: 'ceramic@example.com',
       phone: '123456789',
-      category: 'Ceramics',
+      category: 'Ceramics'
     },
     {
       id: 2,
       name: 'Wood Creations',
       email: 'wood@example.com',
       phone: '987654321',
-      category: 'Woodworking',  
+      category: 'Woodworking'  
     },
     {
       id: 3,
       name: 'Handmade Crafts',
       email: 'crafts@example.com',
       phone: '432156789',
-      category: 'crafts',
+      category: 'crafts'
     },
   ];

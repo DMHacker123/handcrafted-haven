@@ -1,3 +1,7 @@
+"use client";
+
+import Footer from "@/components/footer";
+import Header from "@/components/header";
 import SupplierCard from "../../components/SupplierCard";
 import { suppliers } from "../../lib/data";
 
@@ -23,26 +27,32 @@ export default function SupplierPage() {
 
   return (
         <main className="min-h-screen">
-            <h1 className="text-3xl font-bold mb-6">Suppliers</h1>
-            <p className="text-gray-700 mb-4">List of Suppliers</p>
-
-            <div className="grid gap-4">
-              {suppliers.map((supplier) => (
-                <SupplierCard
-                  key={supplier.id}  
-                  name={supplier.name}
-                  email={supplier.email}
-                  phone={supplier.phone}
-                  category={supplier.category}
-                />
-              ))}
+          <Header />
+          <section className="text-center py-16 px-6">
+            <h2 className="text-5xl font-bold mb-6">Sellers</h2>
+            <p className="text-lg max-w-4xl mx-auto">
+              List of Sellers.
+            </p>
+          </section>
+          <div className="grid grid-cols-1 md:grid-cols-3 py-10 px-6 gap-8 max-w-6xl mx-auto">       
+            {suppliers.map((supplier) => (
+              <SupplierCard
+                key={supplier.id}
+                id={supplier.id}
+                name={supplier.name}
+                email={supplier.email}
+                phone={supplier.phone}
+                category={supplier.category}
+              />
+          ))}
             {/* <div>
               <h2>{supplier.name}</h2>
               <p>{supplier.email}</p>
             </div> */}
                        
-            </div>
+          </div>
 
+          <Footer />
         </main>
 
     );
