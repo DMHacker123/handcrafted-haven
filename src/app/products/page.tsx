@@ -1,5 +1,5 @@
-import Footer from "@/src/components/footer";
-import Header from "@/src/components/header";
+import Footer from "@/components/footer";
+import Header from "@/components/header";
 
 const products = [
   {
