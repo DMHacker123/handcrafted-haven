@@ -1,7 +1,7 @@
-import { suppliers } from "@/lib/data";
 import Footer from "@/components/footer";
 import Header from "@/components/header";
-
+import { updateSellerProfile } from "@/services/sellerService";
+import { getAllSellers } from "@/services/sellerService";
 
 type Props = {
   params: Promise<{
@@ -14,7 +14,11 @@ export default async function SupplierDetailsPage({
 }: Props) {
 
   const {id} = await params;
-  const supplier = suppliers.find((supplier) => supplier.id === Number(id));
+  const { data: sellers, error } = await getAllSellers();
+
+  const supplier = sellers?.find(
+    (seller) => seller.id === id
+  );
 
   if (!supplier) {
     return (
@@ -26,13 +30,22 @@ export default async function SupplierDetailsPage({
       );
   }
   async function updateSupplier(formData: FormData) {
-  "use server";
-
-  console.log("Name:", formData.get("name"));
-  console.log("Email:", formData.get("email"));
-  console.log("Phone:", formData.get("phone"));
-  console.log("Category:", formData.get("category"));
-}
+    "use server";
+    // await updateSellerProfile(id, {
+    //   shop_name: formData.get("shop_name"),
+    //   bio: formData.get("bio"),
+    //   location: formData.get("location"),
+    //   website: formData.get("website"),
+    // });
+    const result =await updateSellerProfile(id, {
+      shop_name: formData.get("shop_name"),
+      bio: formData.get("bio"),
+      location: formData.get("location"),
+      website: formData.get("website"),
+    });
+    console.log("UPDATE RESULT:");
+    console.log(result);
+  }
 
   return (
     <main className="min-h-screen">
@@ -41,33 +54,33 @@ export default async function SupplierDetailsPage({
       <h1 className="text-3xl font-bold">
         Edit Seller
       </h1>
-      <form  action={updateSupplier}
+      <form action={updateSupplier}
         className="flex flex-col gap-4 max-w-md">
         <input
-          name="name"
+          name="shop_name"
           type="text"
-          defaultValue={supplier.name}
+          defaultValue={supplier.shop_name}
           className="border p-2 rounded"
         />
 
         <input
-          name="email"
-          type="email"
-          defaultValue={supplier.email}
+          name="bio"
+          type="text"
+          defaultValue={supplier.bio}
           className="border p-2 rounded"
         />
 
         <input
-          name="phone"
+          name="location"
           type="text"
-          defaultValue={supplier.phone}
+          defaultValue={supplier.location}
           className="border p-2 rounded"
         />
 
         <input
-          name="category"
+          name="website"
           type="text"
-          defaultValue={supplier.category}
+          defaultValue={supplier.website ?? ""}
           className="border p-2 rounded"
         />
         <button type="submit" className="bg-[#53483c] text-white px-4 py-2 rounded hover:bg-white hover:text-[#53483c]">

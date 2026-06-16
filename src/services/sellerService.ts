@@ -1,6 +1,10 @@
 import { supabase } from "@/lib/supabase";
 
-export async function getAllSellers()
+export async function getAllSellers() {
+  return await supabase
+    .from("seller_profiles")
+    .select("*");
+}
 
 export async function getSellerProfile(userId: string) {
   return await supabase
@@ -24,4 +28,11 @@ export async function updateSellerProfile(
     .from("seller_profiles")
     .update(updates)
     .eq("id", sellerId);
+}
+
+export async function deleteSellerProfile(id: string) {
+  return await supabase
+    .from("seller_profiles")
+    .delete()
+    .eq("id", id);
 }

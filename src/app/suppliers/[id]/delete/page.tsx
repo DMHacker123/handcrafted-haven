@@ -1,6 +1,7 @@
 import Footer from "@/components/footer";
 import Header from "@/components/header";
-import { suppliers } from "@/lib/data";
+import { deleteSellerProfile } from "@/services/sellerService";
+import { getAllSellers } from "@/services/sellerService";
 
 type Props = {
   params: Promise<{
@@ -14,8 +15,9 @@ export default async function DeleteSupplierPage({
 
   const { id } = await params;
 
-  const supplier = suppliers.find(
-    (supplier) => supplier.id === Number(id)
+  const { data: sellers } = await getAllSellers();
+  const supplier = sellers?.find(
+    (supplier) => supplier.id === id
   );
 
   if (!supplier) {
@@ -31,8 +33,9 @@ export default async function DeleteSupplierPage({
 
   async function deleteSupplier() {
   "use server";
-
-  console.log("Deleting supplier...");
+    const result = await deleteSellerProfile(id);
+    console.log("Deleting supplier...");
+    console.log(result);
 }
 
   return (
@@ -47,7 +50,7 @@ export default async function DeleteSupplierPage({
         </p>
 
         <p className="font-bold mt-4 text-lg text-center text-[#b89b72]">
-            {supplier.name}
+            {supplier.shop_name}
         </p>
         <form action={deleteSupplier}>
         <button type="submit" className="bg-[#53483c] text-white px-4 py-2 rounded hover:bg-white hover:text-[#53483c] block mx-auto mt-6">
