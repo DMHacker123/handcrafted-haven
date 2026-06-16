@@ -3,24 +3,24 @@ import type { Supplier } from "./types";
 
 export const suppliers: Supplier[] = [
     {
-      id: 1,
-      name: 'Ceramic Arts',
-      email: 'ceramic@example.com',
-      phone: '123456789',
-      category: 'Ceramics'
+      id: "1",
+      shop_name: 'Ceramic Arts',
+      bio: 'Handmade ceramic products',
+      location: 'Argentina',
+      website: 'www.woodcreations.com'
     },
     {
-      id: 2,
-      name: 'Wood Creations',
-      email: 'wood@example.com',
-      phone: '987654321',
-      category: 'Woodworking'  
+      id: "2",
+      shop_name: 'Wood Creations',
+      bio: 'Custom wood furniture and decor',
+      location: 'Mexico',
+      website: 'www.woodcreations.com'  
     },
     {
-      id: 3,
-      name: 'Handmade Crafts',
-      email: 'crafts@example.com',
-      phone: '432156789',
-      category: 'crafts'
+      id: "3",
+      shop_name: 'Handmade Crafts',
+      bio: 'Unique handmade crafts',
+      location: 'Colombia',
+      website: 'www.handmadecrafts.com'
     },
   ];

@@ -1,6 +1,6 @@
-import { suppliers } from "@/lib/data";
 import Footer from "@/components/footer";
 import Header from "@/components/header";
+import { getAllSellers } from "@/services/sellerService";
 
 
 type Props = {
@@ -14,8 +14,11 @@ export default async function SupplierDetailsPage({
 }: Props) {
 
   const {id} = await params;
-  const supplier = suppliers.find((supplier) => supplier.id === Number(id));
+  const { data: sellers, error } = await getAllSellers();
 
+  const supplier = sellers?.find(
+    (seller) => seller.id === id
+  );
   if (!supplier) {
     return (
       <main className="p-10">
@@ -36,19 +39,19 @@ export default async function SupplierDetailsPage({
       
       <div className="mt-6 border rounded-lg p-6 max-w-md">
       <h2 className="text-2xl font-bold mb-4">
-        {supplier?.name}
+        {supplier.shop_name}
       </h2>
 
       <p>
-        <strong>Email:</strong> {supplier?.email}
+        <strong>Bio:</strong> {supplier.bio}
       </p>
 
       <p>
-        <strong>Phone:</strong> {supplier?.phone}
+        <strong>Location:</strong> {supplier.location}
       </p>
 
       <p>
-        <strong>Category:</strong> {supplier?.category}
+        <strong>Website:</strong> {supplier.website}
       </p>
     </div>
     <Footer />

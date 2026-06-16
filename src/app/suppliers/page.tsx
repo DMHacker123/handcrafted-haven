@@ -1,12 +1,14 @@
-"use client";
-
 import Footer from "@/components/footer";
 import Header from "@/components/header";
 import SupplierCard from "../../components/SupplierCard";
-import { suppliers } from "../../lib/data";
+import { getAllSellers } from "@/services/sellerService";
 
+export default async function SupplierPage() {
 
-export default function SupplierPage() {
+  const { data: sellers, error } = await getAllSellers();
+
+    console.log("SELLERS:", sellers);
+    console.log("ERROR:", error);
   //  const suppliers = [
   // //   {
   //     id: 1,
@@ -35,14 +37,14 @@ export default function SupplierPage() {
             </p>
           </section>
           <div className="grid grid-cols-1 md:grid-cols-3 py-10 px-6 gap-8 max-w-6xl mx-auto">       
-            {suppliers.map((supplier) => (
+            {sellers?.map((supplier) => (
               <SupplierCard
                 key={supplier.id}
                 id={supplier.id}
-                name={supplier.name}
-                email={supplier.email}
-                phone={supplier.phone}
-                category={supplier.category}
+                shop_name={supplier.shop_name}
+                bio={supplier.bio}
+                location={supplier.location}
+                website={supplier.website}
               />
           ))}
             {/* <div>
