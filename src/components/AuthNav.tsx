@@ -2,11 +2,15 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
 import LogoutButton from "./LogoutButton";
+import styles from "./Navbar.module.css";
 
 export default function AuthNav() {
   const supabase = createClient();
+  const pathname = usePathname();
+
   const [user, setUser] = useState<any>(null);
 
   useEffect(() => {
@@ -19,26 +23,26 @@ export default function AuthNav() {
     }
 
     getUser();
-  }, []);
+  }, [supabase]);
 
-if (!user) {
+  if (!user) {
+    return (
+      <div className={styles.authLinks}>
+        {pathname !== "/login" && (
+          <Link href="/login">Login</Link>
+        )}
+
+        {pathname !== "/register" && (
+          <Link href="/register">Register</Link>
+        )}
+      </div>
+    );
+  }
+
   return (
-    <div className="flex items-center gap-4">
-      <Link href="/login">Login</Link>
-      <Link href="/register">Register</Link>
+    <div className={styles.authLinks}>
+      <Link href="/dashboard">Dashboard</Link>
+      <LogoutButton />
     </div>
-  );
-}
-
-  return (
-    <>
-      <li>
-        <Link href="/dashboard">Dashboard</Link>
-      </li>
-
-      <li>
-        <LogoutButton />
-      </li>
-    </>
   );
 }
