@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { createClient } from "@/lib/supabase/client";
+import styles from "./Register.module.css";
 
 export default function RegisterPage() {
   const supabase = createClient();
@@ -40,41 +41,46 @@ export default function RegisterPage() {
   }
 
   return (
-    <main>
-      <h1>Create Account</h1>
+    <main className={styles.authContainer}>
+      <div className={styles.authCard}>
+        <h1 className={styles.authTitle}>Create Account</h1>
 
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Full Name"
-          value={fullName}
-          onChange={(e) =>
-            setFullName(e.target.value)
-          }
-        />
+        <form className={styles.authForm} onSubmit={handleSubmit}>
+          <input
+            type="text"
+            placeholder="Full Name"
+            className={styles.authInput}
+            value={fullName}
+            onChange={(e) =>
+              setFullName(e.target.value)
+            }
+          />
 
-        <input
-          type="email"
-          placeholder="Email"
+          <input
+            type="email"
+            placeholder="Email"
+            className={styles.authInput}
           value={email}
           onChange={(e) =>
             setEmail(e.target.value)
           }
         />
 
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
+          <input
+            type="password"
+            placeholder="Password"
+            className={styles.authInput}
+            value={password}
           onChange={(e) =>
             setPassword(e.target.value)
           }
         />
 
-        <button type="submit">
-          Register
-        </button>
-      </form>
+          <button type="submit" className={styles.authButton}>
+            Register
+          </button>
+        </form>
+      </div>
     </main>
   );
 }

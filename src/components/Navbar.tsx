@@ -22,7 +22,9 @@ export default function Navbar() {
           <Link href="/about">About</Link>
         </li>
 
-        <AuthNav />
+        <li>
+          <AuthNav />
+        </li>
       </ul>
     </nav>
   );
