@@ -18,12 +18,14 @@ export default async function CreateSupplierPage() {
     
     if (!user) {
       redirect("/login");
-}
+    }
+
+    const userId = user.id;
     async function createSupplier(formData: FormData) {
     "use server";
 
     const result = await createSellerProfile({
-      user_id: user.id,
+      user_id: userId,
       shop_name: formData.get("shop_name"),
       bio: formData.get("bio"),
       location: formData.get("location"),
