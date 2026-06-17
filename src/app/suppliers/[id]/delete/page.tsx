@@ -2,6 +2,7 @@ import Footer from "@/components/footer";
 import Header from "@/components/header";
 import { deleteSellerProfile } from "@/services/sellerService";
 import { getAllSellers } from "@/services/sellerService";
+import { redirect } from "next/navigation";
 
 type Props = {
   params: Promise<{
@@ -36,6 +37,7 @@ export default async function DeleteSupplierPage({
     const result = await deleteSellerProfile(id);
     console.log("Deleting supplier...");
     console.log(result);
+    redirect("/suppliers");
 }
 
   return (

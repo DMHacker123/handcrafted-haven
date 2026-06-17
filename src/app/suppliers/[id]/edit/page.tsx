@@ -2,6 +2,7 @@ import Footer from "@/components/footer";
 import Header from "@/components/header";
 import { updateSellerProfile } from "@/services/sellerService";
 import { getAllSellers } from "@/services/sellerService";
+import { redirect } from "next/navigation";
 
 type Props = {
   params: Promise<{
@@ -43,8 +44,7 @@ export default async function SupplierDetailsPage({
       location: formData.get("location"),
       website: formData.get("website"),
     });
-    console.log("UPDATE RESULT:");
-    console.log(result);
+    redirect("/suppliers");
   }
 
   return (
@@ -56,33 +56,56 @@ export default async function SupplierDetailsPage({
       </h1>
       <form action={updateSupplier}
         className="flex flex-col gap-4 max-w-md">
-        <input
-          name="shop_name"
-          type="text"
-          defaultValue={supplier.shop_name}
-          className="border p-2 rounded"
-        />
+          <div className="flex flex-col">
+            <label htmlFor="Shop Name" className="mb-1 font-medium text-[#b89b72]">
+              Shop Name
+            </label>
+            <input
+              name="shop_name"
+              type="text"
+              defaultValue={supplier.shop_name}
+              className="border p-2 rounded"
+            />
+          </div>
+        
+          <div className="flex flex-col">
+            <label htmlFor="Bio" className="mb-1 font-medium text-[#b89b72]">
+              Bio
+            </label>
 
-        <input
-          name="bio"
-          type="text"
-          defaultValue={supplier.bio}
-          className="border p-2 rounded"
-        />
+            <input
+              name="bio"
+              type="text"
+              defaultValue={supplier.bio}
+              className="border p-2 rounded"
+            />
+          </div>
 
-        <input
-          name="location"
-          type="text"
-          defaultValue={supplier.location}
-          className="border p-2 rounded"
-        />
+          <div className="flex flex-col">
+            <label htmlFor="Location" className="mb-1 font-medium text-[#b89b72]">
+              Location  
+            </label>
 
-        <input
-          name="website"
-          type="text"
-          defaultValue={supplier.website ?? ""}
-          className="border p-2 rounded"
-        />
+            <input
+              name="location"
+              type="text"
+              defaultValue={supplier.location}
+              className="border p-2 rounded"
+            />
+          </div>
+
+          <div className="flex flex-col">
+            <label htmlFor="Website" className="mb-1 font-medium text-[#b89b72]">
+              Website
+            </label>
+            <input
+              name="website"
+              type="text"
+              defaultValue={supplier.website ?? ""}
+              className="border p-2 rounded"
+            />
+          </div>
+          
         <button type="submit" className="bg-[#53483c] text-white px-4 py-2 rounded hover:bg-white hover:text-[#53483c]">
           Save Changes
         </button>
