@@ -27,7 +27,7 @@ export default function LoginPage() {
       return;
     }
 
-    alert("Logged in!");
+    window.location.href = "/suppliers";
   }
 
   return (

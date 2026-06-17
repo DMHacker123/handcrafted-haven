@@ -3,6 +3,8 @@ import Header from "@/components/header";
 import { deleteSellerProfile } from "@/services/sellerService";
 import { getAllSellers } from "@/services/sellerService";
 import { redirect } from "next/navigation";
+import { createClient } from "@/lib/supabase/server";
+
 
 type Props = {
   params: Promise<{
@@ -13,7 +15,16 @@ type Props = {
 export default async function DeleteSupplierPage({
   params,
 }: Props) {
+  
+  const supabase = await createClient();
 
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
+
+    if (!user) {
+      redirect("/login");
+    }
   const { id } = await params;
 
   const { data: sellers } = await getAllSellers();

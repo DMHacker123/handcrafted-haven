@@ -2,13 +2,28 @@ import Footer from "@/components/footer";
 import Header from "@/components/header";
 import { createSellerProfile } from "@/services/sellerService";
 import { redirect } from "next/navigation";
+import { createClient } from "@/lib/supabase/server";
 
-export default function CreateSupplierPage() {
-  async function createSupplier(formData: FormData) {
-  "use server";
+// console.log("SERVER IMPORT:", createClient);
+
+export default async function CreateSupplierPage() {
+  
+  const supabase = await createClient();
+
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
+
+    console.log("USER:", user);
+    
+    if (!user) {
+      redirect("/login");
+}
+    async function createSupplier(formData: FormData) {
+    "use server";
 
     const result = await createSellerProfile({
-      user_id: "f7dcf230-57f7-44f5-b616-dacdb7e3664f",
+      user_id: user.id,
       shop_name: formData.get("shop_name"),
       bio: formData.get("bio"),
       location: formData.get("location"),
