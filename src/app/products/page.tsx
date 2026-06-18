@@ -1,46 +1,62 @@
 import Footer from "@/components/footer";
 import Header from "@/components/header";
+import ProductCard from "@/components/ProductCard";
 
 const products = [
   {
     id: 1,
     name: "Woven Market Basket",
-    description: "A sturdy handwoven basket for shopping, storage, or display.",
+    description:
+      "A sturdy handwoven basket for shopping, storage, or display.",
+    image: "/images/Woven-Market-Basket.png"
   },
   {
     id: 2,
     name: "Clay Flower Vase",
-    description: "A simple ceramic vase shaped and finished by hand.",
+    description:
+      "A simple ceramic vase shaped and finished by hand.",
+    image: "/images/Clay-Flower-Vase.png"
   },
   {
     id: 3,
     name: "Carved Wooden Spoon",
-    description: "A smooth kitchen spoon made from natural wood.",
+    description:
+      "A smooth kitchen spoon made from natural wood.",
+    image: "/images/Carven-Wooden-Spoon.png"
   },
   {
     id: 4,
     name: "Embroidered Linen Towel",
-    description: "A soft towel with colorful stitched details.",
+    description:
+      "A soft towel with colorful stitched details.",
+    image: "/images/Embroidered-Linen-Towel.png"
   },
   {
     id: 5,
     name: "Beaded Bracelet",
-    description: "A lightweight bracelet made with hand-selected beads.",
+    description:
+      "A lightweight bracelet made with hand-selected beads.",
+    image: "/images/Beaded-Bracelet.png"
   },
   {
     id: 6,
     name: "Painted Trinket Dish",
-    description: "A small dish for jewelry, keys, or everyday keepsakes.",
+    description:
+      "A small dish for jewelry, keys, or everyday keepsakes.",
+    image: "/images/Painted-Trinket-Dish.png"
   },
 ];
 
 export default function ProductsPage() {
   return (
-    <main className="min-h-screen">
+    <main>
       <Header />
 
       <section className="text-center py-16 px-6">
-        <h2 className="text-5xl font-bold mb-6">Products</h2>
+        <h2 className="text-5xl font-bold mb-6">
+          Products
+        </h2>
+
         <p className="text-lg max-w-4xl mx-auto">
           Browse simple handcrafted items from local makers.
         </p>
@@ -48,19 +64,10 @@ export default function ProductsPage() {
 
       <section className="grid grid-cols-1 md:grid-cols-3 py-10 px-6 gap-8 max-w-6xl mx-auto">
         {products.map((product) => (
-          <article
+          <ProductCard
             key={product.id}
-            className="rounded-lg overflow-hidden"
-          >
-            <div className="h-[230px] bg-[#f5f1eb] flex items-center justify-center text-7xl text-[#53483c]">
-              :)
-            </div>
-
-            <div className="p-5">
-              <h3 className="text-xl font-semibold mb-2">{product.name}</h3>
-              <p className="text-gray-600">{product.description}</p>
-            </div>
-          </article>
+            product={product}
+          />
         ))}
       </section>
 
