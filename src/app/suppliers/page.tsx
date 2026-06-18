@@ -3,6 +3,8 @@ import Header from "@/components/header";
 import SupplierCard from "../../components/SupplierCard";
 import { getAllSellers } from "@/services/sellerService";
 
+export const dynamic = "force-dynamic";
+
 export default async function SupplierPage() {
 
   const { data: sellers, error } = await getAllSellers();
